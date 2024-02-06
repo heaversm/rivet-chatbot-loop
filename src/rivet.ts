@@ -44,9 +44,7 @@ async function getGraphResult() {
   // process.exit();
 }
 
-app.get('/', (req, res) => {
-  res.send('Express + TypeScript Server');
-});
+app.use(express.static('public'));
 
 app.get('/api/result', async (req, res) => {
   try {

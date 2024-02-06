@@ -30,9 +30,7 @@ async function getGraphResult() {
     // Force the application to exit (otherwise it keeps running as debugger still runs and does not have a close function)
     // process.exit();
 }
-app.get('/', (req, res) => {
-    res.send('Express + TypeScript Server');
-});
+app.use(express.static('public'));
 app.get('/api/result', async (req, res) => {
     try {
         const result = await getGraphResult();

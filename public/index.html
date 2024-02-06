@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Display Result</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: monospace;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Result from Express API</h1>
+  <div id="apiResult">Loading...</div>
+<script>
+  // Function to fetch result from the Express API and update the page
+  async function fetchResult() {
+    try {
+      // Adjust the URL to match your Express API endpoint
+      const response = await fetch('http://localhost:3000/api/result');
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      console.log(data.result);
+      // Display the result in the 'apiResult' div
+      //document.getElementById('apiResult').textContent = JSON.stringify(data.result, null, 2);
+      document.getElementById('apiResult').innerHTML = data.result.replace(/\n/g, '<br>');
+    } catch (error) {
+      console.error('Could not fetch the result:', error);
+      document.getElementById('apiResult').textContent = 'Failed to load result.';
+    }
+  }
+
+  // Call fetchResult on page load
+  fetchResult();
+</script>
+
+</body>
+
+</html>
