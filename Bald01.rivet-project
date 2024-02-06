@@ -1,0 +1,173 @@
+version: 4
+data:
+  attachedData:
+    trivet:
+      testSuites: []
+      version: 1
+  graphs:
+    YorzZlyR8d1SIbFiu4mC9:
+      metadata:
+        description: ""
+        id: YorzZlyR8d1SIbFiu4mC9
+        name: romanian loop
+      nodes:
+        '[1Mm_erHrrOWAMjhkVHpyy]:assemblePrompt "Assemble Prompt"':
+          outgoingConnections:
+            - prompt->"Chat" QxzxN54PtnqpBwrzB0usr/prompt
+          visualData: 461.98191544703815/173.60799218177198/280/80//
+        '[1kcoUBgDPrRt3ag9-NKF1]:text "Text"':
+          data:
+            text: "You are a husband speaking to your wife. you mostly speak in english but
+              sometimes slip in romanian words by accident. Your wife says to
+              you:\r\n"
+          outgoingConnections:
+            - output->"Assemble Prompt" 1Mm_erHrrOWAMjhkVHpyy/message1
+          visualData: -16.298950081093068/9.264685958737573/330/74//
+        '[2H24WoFx50oYE39jNdnlA]:assembleMessage "Assemble Message"':
+          data:
+            toolCallId: ""
+            type: user
+            useToolCallIdInput: false
+            useTypeInput: false
+          outgoingConnections:
+            - message->"Chat" 6d22weGJSlClz29TTnrIT/prompt
+          visualData: 1899.9594030601372/1266.7159701948367/280/63//
+        '[3IwwmxWj8WhMyhhhKZVpQ]:loopController "Loop Controller"':
+          data:
+            maxIterations: 100
+          outgoingConnections:
+            - break->"Graph Output" KX-zLwHPKiA-kbDl9KX8Y/value
+            - output1->"Assemble Message" 2H24WoFx50oYE39jNdnlA/part2
+          visualData: 1337.0760128017416/693.7721336670465/280/61//
+        '[4YazRCcczdPLobXg0NVe_]:text "Text"':
+          data:
+            text: "You are a husband speaking to your wife. You are really mad so you keep
+              your responses brief and focused on the topic, not the emotion.
+              When she talks about her body you don't understand her and get
+              absolutely furious. You switch topics to focus on one of your many
+              hobbies in the garage. You mostly speak in english but sometimes
+              slip in romanian words by accident, but don't want to admit it.
+              You never say more than a couple sentances. You've never been more
+              angry. Your wife says to you:\r\n"
+          outgoingConnections:
+            - output->"Assemble Prompt" aM3ZvCIzKrHT8BA9mB0C0/message1
+          visualData: 2.7223234526932742/617.025964252543/330/79//
+        '[6d22weGJSlClz29TTnrIT]:chat "Chat"':
+          data:
+            cache: false
+            enableFunctionUse: false
+            frequencyPenalty: 0
+            headers: []
+            maxTokens: 256
+            model: gpt-3.5-turbo
+            parallelFunctionCalling: true
+            presencePenalty: 0
+            stop: ""
+            temperature: 1
+            top_p: 1
+            useAsGraphPartialOutput: true
+            useFrequencyPenaltyInput: false
+            useMaxTokensInput: false
+            useModelInput: false
+            usePresencePenaltyInput: false
+            useStop: false
+            useStopInput: false
+            useTemperatureInput: false
+            useTopP: false
+            useTopPInput: false
+            useUseTopPInput: false
+            useUserInput: false
+          outgoingConnections:
+            - response->"Assemble Prompt" aM3ZvCIzKrHT8BA9mB0C0/message2
+          visualData: 1947.5240487587869/1600.2219901110736/230/65//
+        '[KX-zLwHPKiA-kbDl9KX8Y]:graphOutput "Graph Output"':
+          data:
+            dataType: string
+            id: output
+          visualData: 2506.92879308974/661.0488893365773/330/68//
+        '[M6hDmRBhx6bkcskx4CQfc]:chat "Chat"':
+          data:
+            cache: false
+            enableFunctionUse: false
+            frequencyPenalty: 0
+            headers: []
+            maxTokens: 256
+            model: gpt-3.5-turbo
+            parallelFunctionCalling: true
+            presencePenalty: 0
+            stop: ""
+            temperature: 1
+            top_p: 1
+            useAsGraphPartialOutput: true
+            useFrequencyPenaltyInput: false
+            useMaxTokensInput: false
+            useModelInput: false
+            usePresencePenaltyInput: false
+            useStop: false
+            useStopInput: false
+            useTemperatureInput: false
+            useTopP: false
+            useTopPInput: false
+            useUseTopPInput: false
+            useUserInput: false
+          outgoingConnections:
+            - response->"Loop Controller" 3IwwmxWj8WhMyhhhKZVpQ/input2
+          visualData: 911.7629239086172/959.7094104888955/230/77//
+        '[QxzxN54PtnqpBwrzB0usr]:chat "Chat"':
+          data:
+            cache: false
+            enableFunctionUse: false
+            frequencyPenalty: 0
+            headers: []
+            maxTokens: 256
+            model: gpt-3.5-turbo
+            parallelFunctionCalling: true
+            presencePenalty: 0
+            stop: ""
+            temperature: 0.5
+            top_p: 1
+            useAsGraphPartialOutput: true
+            useFrequencyPenaltyInput: false
+            useMaxTokensInput: false
+            useModelInput: false
+            usePresencePenaltyInput: false
+            useStop: false
+            useStopInput: false
+            useTemperatureInput: false
+            useTopP: false
+            useTopPInput: false
+            useUseTopPInput: false
+            useUserInput: false
+          outgoingConnections:
+            - response->"Loop Controller" 3IwwmxWj8WhMyhhhKZVpQ/input1
+          visualData: 858.0258341271697/195.17889601200935/230/57//
+        '[X8LUG0nYrs0v3JZgxO0mG]:text "Text"':
+          data:
+            text: "You are a wife speaking to your husband. You respond only to the
+              emotional words from your husband. You feel very angry about how
+              fat you are. You are depressed about how stupid your husband is
+              and speak about it vaguely, hoping he doesn't understand you are
+              talking about him. You mostly speak in english but sometimes slip
+              in romanian words by accident, but don't want to admit it. You
+              never say more than a couple sentances. You've never been more
+              angry. Your husband says to you:"
+          outgoingConnections:
+            - output->"Assemble Message" 2H24WoFx50oYE39jNdnlA/part1
+          visualData: 1865.115181426414/986.3052921904045/330/62//
+        '[aM3ZvCIzKrHT8BA9mB0C0]:assemblePrompt "Assemble Prompt"':
+          outgoingConnections:
+            - prompt->"Chat" M6hDmRBhx6bkcskx4CQfc/prompt
+          visualData: 558.3849227014267/731.1020841309327/280/75//
+        '[h6JzC57Wm2jLIUjBa5jWz]:userInput "User Input"':
+          data:
+            prompt: This is an example question?
+            text: ""
+            useInput: false
+          outgoingConnections:
+            - output->"Assemble Prompt" 1Mm_erHrrOWAMjhkVHpyy/message2
+          visualData: -36.804960240577316/319.04252062620884/280/60//
+  metadata:
+    description: bald-test01
+    id: vY0ICeLkgXPeLV4d-GE6z
+    title: Bald01
+  plugins: []

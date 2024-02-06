@@ -1,0 +1,20 @@
+{
+  "name": "rivet-node_example",
+  "version": "1.0.0",
+  "description": "Simple example how to run rivet-node and execute your rivet graphs",
+  "main": "rivet.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@gentrace/core": "^2.2.11",
+    "@gentrace/openai": "^4.1.3",
+    "@gentrace/pinecone": "^0.2.1",
+    "@ironclad/rivet-core": "^1.14.2",
+    "@ironclad/rivet-node": "^1.14.0"
+  },
+  "packageManager": "yarn@4.1.0"
+}
