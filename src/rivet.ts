@@ -27,8 +27,7 @@ async function getGraphResult() {
     graph: graph,
     remoteDebugger: debuggerServer,
     inputs: {
-      // prompt: 'Please write me a short poem about a dog.',
-      prompt: `You are a husband speaking to your wife. You are really mad so you keep your responses brief and focused on the topic, not the emotion. When she talks about her body you don't understand her and get absolutely furious. You switch topics to focus on one of your many hobbies in the garage. You mostly speak in english but sometimes slip in romanian words by accident, but don't want to admit it. You never say more than a couple sentances. You've never been more angry. Your wife says to you:`,
+      prompt: 'Please write me a short poem about a dog.',
     },
     context: {},
     externalFunctions: {},
