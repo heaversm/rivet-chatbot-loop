@@ -16,9 +16,14 @@
 
 <body>
   <h1>Conversation</h1>
-  <div id="apiResult">Loading...</div>
+  <div id="apiResult"></div>
 <script>
   // Function to fetch result from the Express API and update the page
+  let i=0;
+  let max=5; //number of iterations in the conversation
+  const speaker1 = 'Woman:<br/>';
+  const speaker2 = 'Man:<br/>';
+
   async function fetchResult() {
     try {
       // Adjust the URL to match your Express API endpoint
@@ -30,7 +35,16 @@
       console.log(data.result);
       // Display the result in the 'apiResult' div
       //document.getElementById('apiResult').textContent = JSON.stringify(data.result, null, 2);
-      document.getElementById('apiResult').innerHTML = data.result.replace(/\n/g, '<br>');
+      const result = data.result.replace(/\n/g, '<br>');
+      const speaker = i%2==0 ? speaker1 : speaker2;
+      document.getElementById('apiResult').innerHTML += `<br>${speaker}${result}`;
+      if (i<max){
+        i++;
+        fetchResult();
+      }
+      else{
+        document.getElementById('apiResult').innerHTML += '<br>End of conversation';
+      }
     } catch (error) {
       console.error('Could not fetch the result:', error);
       document.getElementById('apiResult').textContent = 'Failed to load result.';
